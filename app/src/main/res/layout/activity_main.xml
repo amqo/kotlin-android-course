@@ -18,18 +18,17 @@
                 android:id="@+id/iv_icon"
                 android:layout_width="64dp"
                 android:layout_height="64dp"
-                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
                 android:layout_alignParentTop="true"
-                android:layout_marginRight="16dp"
-                android:src="@drawable/water" />
+                android:layout_marginEnd="16dp"
+                android:contentDescription="@string/water_icon_description" />
 
             <TextView
                 android:id="@+id/tv_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentTop="true"
-                android:layout_toRightOf="@+id/iv_icon"
-                android:text="@string/water_title"
+                android:layout_toEndOf="@+id/iv_icon"
                 android:textSize="30sp" />
 
             <TextView
@@ -37,7 +36,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/tv_title"
-                android:layout_toRightOf="@id/iv_icon" />
+                android:layout_toEndOf="@id/iv_icon" />
 
         </RelativeLayout>
 
