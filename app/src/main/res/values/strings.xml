@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">HabitTrainer</string>
+    <string name="water_description">A refreshing glass of water gets you hydrated</string>
+    <string name="water_title">Drink water</string>
 </resources>

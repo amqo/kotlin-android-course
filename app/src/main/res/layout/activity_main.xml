@@ -29,7 +29,7 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentTop="true"
                 android:layout_toRightOf="@+id/iv_icon"
-                android:text="Drink water"
+                android:text="@string/water_title"
                 android:textSize="30sp" />
 
             <TextView
@@ -37,8 +37,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/tv_title"
-                android:layout_toRightOf="@id/iv_icon"
-                android:text="A refreshing glass of water gets you hydrated" />
+                android:layout_toRightOf="@id/iv_icon" />
 
         </RelativeLayout>
 
