@@ -18,6 +18,8 @@ class CreateHabitActivity : AppCompatActivity() {
 
     private val CHOOSE_IMAGE_REQUEST = 1
 
+    private var imageBitmap: Bitmap? = null
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_create_habit)
@@ -32,6 +34,7 @@ class CreateHabitActivity : AppCompatActivity() {
 
             val bitmap = tryReadBitmap(data.data)
             bitmap?.let {
+                this.imageBitmap = bitmap
                 iv_image.setImageBitmap(bitmap)
                 Log.d(TAG, "Read image bitmap and update image view")
             }
@@ -56,5 +59,24 @@ class CreateHabitActivity : AppCompatActivity() {
         startActivityForResult(chooser, CHOOSE_IMAGE_REQUEST)
 
         Log.d(TAG, "Intent to choose image sent...")
+    }
+
+    fun storeHabit(v: View) {
+        if (et_title.text.toString().isBlank() || et_description.text.toString().isBlank()) {
+            Log.d(TAG, "No habit stored: title or description missing")
+            displayErrorMessage("Your habit needs an engaging title and description")
+            return
+        } else if (imageBitmap == null) {
+            Log.d(TAG, "No habit stored: image missing")
+            displayErrorMessage("Add a motivating picture to your habit")
+            return
+        }
+        tv_error.visibility = View.INVISIBLE
+        finish()
+    }
+
+    private fun displayErrorMessage(message: String) {
+        tv_error.text = message
+        tv_error.visibility = View.VISIBLE
     }
 }
