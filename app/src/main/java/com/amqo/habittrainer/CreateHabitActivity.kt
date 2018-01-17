@@ -9,6 +9,7 @@ import android.provider.MediaStore
 import android.support.v7.app.AppCompatActivity
 import android.util.Log
 import android.view.View
+import android.widget.EditText
 import kotlinx.android.synthetic.main.activity_create_habit.*
 import java.io.IOException
 
@@ -62,7 +63,7 @@ class CreateHabitActivity : AppCompatActivity() {
     }
 
     fun storeHabit(v: View) {
-        if (et_title.text.toString().isBlank() || et_description.text.toString().isBlank()) {
+        if (et_title.isBlank() || et_description.isBlank()) {
             Log.d(TAG, "No habit stored: title or description missing")
             displayErrorMessage("Your habit needs an engaging title and description")
             return
@@ -79,4 +80,7 @@ class CreateHabitActivity : AppCompatActivity() {
         tv_error.text = message
         tv_error.visibility = View.VISIBLE
     }
+
 }
+
+private fun EditText.isBlank() = this.text.toString().isBlank()
