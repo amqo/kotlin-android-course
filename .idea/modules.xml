@@ -2,8 +2,9 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/Android.iml" filepath="$PROJECT_DIR$/Android.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
-      <module fileurl="file://$PROJECT_DIR$/kotlin-android-course.iml" filepath="$PROJECT_DIR$/kotlin-android-course.iml" />
+      <module fileurl="file://C:\Users\Alberto\Desarrollo\Cursos\Udemy\Kotlin\Android\kotlin-android-course.iml" filepath="C:\Users\Alberto\Desarrollo\Cursos\Udemy\Kotlin\Android\kotlin-android-course.iml" />
     </modules>
   </component>
 </project>
