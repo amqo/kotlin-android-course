@@ -7,7 +7,7 @@
     android:clickable="true"
     android:elevation="24dp"
     android:foreground="?android:attr/selectableItemBackground"
-    tools:context="com.amqo.habittrainer.MainActivity">
+    tools:context="com.amqo.habittrainer.view.MainActivity">
 
     <RelativeLayout
         android:layout_width="match_parent"

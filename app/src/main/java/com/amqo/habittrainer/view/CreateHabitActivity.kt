@@ -1,4 +1,4 @@
-package com.amqo.habittrainer
+package com.amqo.habittrainer.view
 
 import android.app.Activity
 import android.content.Intent
@@ -10,6 +10,8 @@ import android.support.v7.app.AppCompatActivity
 import android.util.Log
 import android.view.View
 import android.widget.EditText
+import com.amqo.habittrainer.model.Habit
+import com.amqo.habittrainer.R
 import com.amqo.habittrainer.persistence.HabitDbTable
 import kotlinx.android.synthetic.main.activity_create_habit.*
 import java.io.IOException

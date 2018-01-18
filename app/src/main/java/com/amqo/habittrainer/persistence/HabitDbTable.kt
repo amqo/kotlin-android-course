@@ -7,7 +7,7 @@ import android.database.sqlite.SQLiteDatabase
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import android.util.Log
-import com.amqo.habittrainer.Habit
+import com.amqo.habittrainer.model.Habit
 import com.amqo.habittrainer.persistence.HabitEntry.DESCR_COL
 import com.amqo.habittrainer.persistence.HabitEntry.IMAGE_COL
 import com.amqo.habittrainer.persistence.HabitEntry.TABLE_NAME
