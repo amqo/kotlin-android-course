@@ -2,6 +2,7 @@ package com.amqo.habittrainer.persistence
 
 import android.content.ContentValues
 import android.content.Context
+import android.database.sqlite.SQLiteDatabase
 import android.graphics.Bitmap
 import android.util.Log
 import com.amqo.habittrainer.Habit
@@ -21,15 +22,9 @@ class HabitDbTable(context: Context) {
         values.put(HabitEntry.DESCR_COL, habit.description)
         values.put(HabitEntry.IMAGE_COL, toByteArray(habit.image))
 
-        db.beginTransaction()
-        val id = try {
-            val returnValue = db.insert(HabitEntry.TABLE_NAME, null, values)
-            db.setTransactionSuccessful()
-            returnValue
-        } finally {
-            db.endTransaction()
+        val id = db.transaction {
+            insert(HabitEntry.TABLE_NAME, null, values)
         }
-        db.close()
 
         Log.d(TAG, "Store new habit to the DB $habit")
 
@@ -41,4 +36,21 @@ class HabitDbTable(context: Context) {
         bitmap.compress(Bitmap.CompressFormat.PNG, 0, stream)
         return stream.toByteArray()
     }
+}
+
+// inline here will take this exact code and put it in the place where it was called from
+// after the concrete function was replaced in it
+// This avoids the anonymous object creations for each function when called
+private inline fun <T> SQLiteDatabase.transaction(function: SQLiteDatabase.() -> T): T {
+    beginTransaction()
+    val result = try {
+        val returnValue = function()
+        setTransactionSuccessful()
+
+        returnValue
+    } finally {
+        endTransaction()
+    }
+    close()
+    return result
 }
