@@ -10,6 +10,7 @@ import android.support.v7.app.AppCompatActivity
 import android.util.Log
 import android.view.View
 import android.widget.EditText
+import com.amqo.habittrainer.persistence.HabitDbTable
 import kotlinx.android.synthetic.main.activity_create_habit.*
 import java.io.IOException
 
@@ -72,8 +73,19 @@ class CreateHabitActivity : AppCompatActivity() {
             displayErrorMessage("Add a motivating picture to your habit")
             return
         }
-        tv_error.visibility = View.INVISIBLE
-        finish()
+
+        val title = et_title.text.toString()
+        val description = et_description.text.toString()
+        val habit = Habit(title, description, imageBitmap!!)
+
+        val id = HabitDbTable(this).store(habit)
+        if (id == -1L) {
+            displayErrorMessage("Habit could not be stored... let's not make this a habit")
+        } else {
+            tv_error.visibility = View.INVISIBLE
+            finish()
+        }
+
     }
 
     private fun displayErrorMessage(message: String) {
